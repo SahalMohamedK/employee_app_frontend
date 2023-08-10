@@ -1,8 +1,13 @@
 import type { FC } from 'react';
 import './styles/global.css';
+import Login from './pages/login/Login';
 
 const App: FC = () => {
-  return <div className='app'>Hello World</div>;
+  return (
+    <>
+      <Login />
+    </>
+  );
 };
 
 export default App;
