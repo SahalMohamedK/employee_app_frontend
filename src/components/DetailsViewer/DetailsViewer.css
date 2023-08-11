@@ -1,18 +1,22 @@
-.details-viewer{
-    display: flex;
-    flex-wrap: wrap;
+.details-row {
+  display: flex;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
 }
 
-.detail{
-    width: 300px;
-    margin-bottom: 30px;
+.details-row:not(:last-of-type) {
+  border-bottom: 1px solid #d8d8d8;
 }
 
-.detail-label{
-    color: #8B8D9D;
-    margin-bottom: 10px;
+.detail {
+  width: 300px;
 }
 
-.detail-value{
-    font-weight: bold;
+.detail-label {
+  color: #8b8d9d;
+  margin-bottom: 10px;
+}
+
+.detail-value {
+  font-weight: bold;
 }

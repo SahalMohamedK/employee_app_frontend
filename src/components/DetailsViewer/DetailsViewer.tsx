@@ -1,15 +1,15 @@
 import { FC } from 'react';
-import HeadersType from '../../types/HeadersType';
 import './DetailsViewer.css';
+import ColumnType from '../../types/ColumnType';
 
 interface DetailsViewerProps {
-  headers: HeadersType[];
+  rows: ColumnType[][];
   data: object;
 }
 
-const DetailsViewer: FC<DetailsViewerProps> = ({ headers, data }) => {
-  const renderData = () => {
-    return headers.map((column, j) => {
+const DetailsViewer: FC<DetailsViewerProps> = ({ rows, data }) => {
+  const renderColumns = (columns) => {
+    return columns.map((column, j) => {
       let value = data[column.key];
 
       value = column.adapter ? column.adapter(value) : value;
@@ -23,7 +23,15 @@ const DetailsViewer: FC<DetailsViewerProps> = ({ headers, data }) => {
     });
   };
 
-  if (data) return <div className='card details-viewer'>{renderData()}</div>;
+  const renderRows = () => {
+    return rows.map((columns, i) => (
+      <div key={i} className='details-row'>
+        {renderColumns(columns)}
+      </div>
+    ));
+  };
+
+  if (data) return <div className='card details-viewer'>{renderRows()}</div>;
   else return <div className='card'>No data</div>;
 };
 

@@ -36,10 +36,12 @@ export const employeeTableHeaders = [
 const Employees = () => {
   const navigate = useNavigate();
 
-  const handleCreate = () => {};
+  const handleCreate = () => {
+    navigate('/employees/create/');
+  };
 
   const handleTableClick = (data: Employee) => {
-    navigate(`/employees/${data.id}`);
+    navigate(`/employees/details/${data.id}`);
   };
 
   return (
@@ -50,7 +52,7 @@ const Employees = () => {
         </TitleBar>
         <div className='grow-scroll'>
           <Table
-            headers={employeeTableHeaders}
+            columns={employeeTableHeaders}
             dataset={employeesDataset}
             onClick={handleTableClick}
           />

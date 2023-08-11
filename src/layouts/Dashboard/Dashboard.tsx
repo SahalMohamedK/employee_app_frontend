@@ -4,6 +4,7 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 import './Dashboard.css';
 import Employees from '../../pages/employees/Employees';
 import Employee from '../../pages/employee/Employee';
+import EmployeeForm from '../../pages/employeeForm/EmployeeForm';
 
 function Dashboard() {
   return (
@@ -16,7 +17,9 @@ function Dashboard() {
             <div className='dashboard-content'>
               <Routes>
                 <Route path='/' element={<Employees />} />
-                <Route path='/:id' element={<Employee />} />
+                <Route path='/details/:id' element={<Employee />} />
+                <Route path='/create' element={<EmployeeForm />} />
+                <Route path='/edit/:id' element={<EmployeeForm />} />
               </Routes>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import TitleBar from '../../components/TitleBar/TitleBar';
 import './Employee.css';
 import IconButton from '../../components/IconButton/IconButton';
@@ -8,37 +8,47 @@ import Status from '../../components/Status/Status';
 import { useEffect, useState } from 'react';
 
 export const employeeDetailsHeaders = [
-  { label: 'Employee Name', key: 'name' },
-  { label: 'Joining Date', key: 'joiningData' },
-  { label: 'Role', key: 'role' },
-  { label: 'Status', key: 'isActive', adapter: (value: boolean) => <Status isActive={value} /> },
-  {
-    label: 'Experience',
-    key: 'experience',
-    adapter: (value: number) => (
-      <>
-        {value} Year{value > 1 ? 's' : ''}
-      </>
-    )
-  },
-  { label: 'Address', key: 'address' },
-  { label: 'Employee ID', key: 'id' }
+  [
+    { label: 'Employee Name', key: 'name' },
+    { label: 'Joining Date', key: 'joiningData' },
+    { label: 'Role', key: 'role' },
+    { label: 'Status', key: 'isActive', adapter: (value: boolean) => <Status isActive={value} /> },
+    {
+      label: 'Experience',
+      key: 'experience',
+      adapter: (value: number) => (
+        <>
+          {value} Year{value > 1 ? 's' : ''}
+        </>
+      )
+    }
+  ],
+  [
+    { label: 'Address', key: 'address' },
+    { label: 'Employee ID', key: 'id' }
+  ]
 ];
 
 function Employee() {
   const { id } = useParams();
   const [employeeData, setEmployeeData] = useState<object>();
 
+  const navigate = useNavigate();
+
+  const handleEditClick = () => {
+    navigate('/employees/edit/' + id);
+  };
+
   useEffect(() => {
     if (id) setEmployeeData(employeesDataset.find((data) => data.id === id));
   }, [id]);
 
   return (
-    <div className='employee-details'>
+    <div>
       <TitleBar title='Employee Details'>
-        <IconButton text='Edit' icon='/assets/icons/edit.svg' />
+        <IconButton text='Edit' icon='/assets/icons/edit.svg' onClick={handleEditClick} />
       </TitleBar>
-      <DetailsViewer headers={employeeDetailsHeaders} data={employeeData} />
+      <DetailsViewer rows={employeeDetailsHeaders} data={employeeData} />
     </div>
   );
 }
