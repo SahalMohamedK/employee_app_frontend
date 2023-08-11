@@ -27,6 +27,10 @@
   font-size: 14px;
 }
 
+.login-input-field-wrapper.error .login-input-field input{
+  border: 1px solid red !important;
+}
+
 .login-input-field input:focus {
   border-color: #03aeee !important;
 }

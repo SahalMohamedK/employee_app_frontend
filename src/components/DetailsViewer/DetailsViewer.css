@@ -1,0 +1,18 @@
+.details-viewer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detail{
+    width: 300px;
+    margin-bottom: 30px;
+}
+
+.detail-label{
+    color: #8B8D9D;
+    margin-bottom: 10px;
+}
+
+.detail-value{
+    font-weight: bold;
+}

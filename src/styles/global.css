@@ -15,14 +15,32 @@ input {
   outline: none;
 }
 
+a{
+  display: block;
+}
+
 .full-screen {
   width: 100vw;
   height: 100vh;
 }
 
-.row {
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
   height: 100%;
   display: flex;
+}
+
+.grow{
+  flex-grow: 1;
+}
+
+.grow-scroll{
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
 .column {
@@ -38,6 +56,9 @@ input {
 .circle {
   border-radius: 100%;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn {
@@ -57,6 +78,20 @@ input {
 
 .btn-primary:hover {
   background: #12779c;
+}
+
+.card{
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  height: fit-content;
+  background: #fff;
+}
+
+.chip{
+  width: fit-content;
+  padding: 5px 20px;
+  border-radius: 50px;
 }
 
 @media only screen and (max-width: 768px) {

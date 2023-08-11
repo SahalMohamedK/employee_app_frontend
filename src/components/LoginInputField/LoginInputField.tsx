@@ -1,13 +1,14 @@
 import { FC } from 'react';
 import './LoginInputField.css';
+import { classNames } from '../../utls/funcs';
 
 interface LoginInputFieldProps {
   id: string;
   label: string;
   type: 'text' | 'password';
   value: string;
-  error?: string;
   onChange: (value: string) => void;
+  error?: string;
 }
 
 const LoginInputField: FC<LoginInputFieldProps> = ({ id, label, type, value, onChange, error }) => {
@@ -17,12 +18,17 @@ const LoginInputField: FC<LoginInputFieldProps> = ({ id, label, type, value, onC
 
   return (
     <>
-      <div className='login-input-field-wrapper'>
+      <div className={classNames('login-input-field-wrapper', error ? 'error' : '')}>
         <div className='login-input-field'>
-          <input onChange={handleChange} placeholder='' {...{ id, type, value }} />
+          <input
+            onChange={handleChange}
+            onBlur={handleChange}
+            placeholder=''
+            {...{ id, type, value }}
+          />
           <label htmlFor={id}>{label}</label>
         </div>
-        {error && <p>{error}</p>}
+        <p>{error}</p>
       </div>
     </>
   );
