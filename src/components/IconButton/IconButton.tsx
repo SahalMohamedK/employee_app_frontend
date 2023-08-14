@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import './IconButton.css';
 
-interface IconButtonProps {
-  icon: string;
+export interface IconButtonProps {
+  icon?: string;
   text: string;
   onClick?: () => void;
 }
@@ -10,11 +10,11 @@ interface IconButtonProps {
 const IconButton: FC<IconButtonProps> = ({ icon, text, onClick }) => {
   return (
     <>
-      <div className='icon-button' onClick={onClick}>
+      <div className='icon-button' onClick={onClick} data-testid='iconButtonTestId'>
         <div className='circle'>
-          <img src={icon} alt={text + ' icon button'} />
+          <img src={icon} alt={text + ' icon button'} data-testid='iconButtonIconTestId' />
         </div>
-        <p>{text}</p>
+        <p data-testid='iconButtonTextTestId'>{text}</p>
       </div>
     </>
   );

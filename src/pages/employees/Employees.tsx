@@ -27,7 +27,8 @@ export const employeeTableHeaders = [
     key: 'action',
     adapter: () => (
       <div className='row'>
-        <img src='' alt='' />
+        <img className='color-danger' src='/assets/icons/trash.svg' alt='Employee delete icon' />
+        <img className='color-primary' src='/assets/icons/edit.svg' alt='Employee edit icon' />
       </div>
     )
   }

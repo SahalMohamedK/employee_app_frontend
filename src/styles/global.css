@@ -1,3 +1,17 @@
+/* Variables */
+:root {
+  /* Primary colors */
+  --primary-color: #03aeee;
+  --primary-tint-color: #eaf9ff;
+  --primary-shade-color: #12779c;
+
+  /* Semantic colors */
+  --success-color: #44682e;
+  --success-tint-color: #d3f4be;
+  --danger-color: #7e3333;
+  --danger-tint-color: #ffbfbf;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +29,7 @@ input {
   outline: none;
 }
 
-a{
+a {
   display: block;
 }
 
@@ -24,7 +38,7 @@ a{
   height: 100vh;
 }
 
-.flex-column{
+.flex-column {
   display: flex;
   flex-direction: column;
 }
@@ -34,11 +48,11 @@ a{
   display: flex;
 }
 
-.grow{
+.grow {
   flex-grow: 1;
 }
 
-.grow-scroll{
+.grow-scroll {
   flex-grow: 1;
   overflow-y: auto;
 }
@@ -72,15 +86,15 @@ a{
 }
 
 .btn-primary {
-  background: #03aeee;
+  background: var(--primary-color);
   color: #fff;
 }
 
 .btn-primary:hover {
-  background: #12779c;
+  background: var(--primary-shade-color);
 }
 
-.card{
+.card {
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
   border-radius: 10px;
@@ -88,7 +102,7 @@ a{
   background: #fff;
 }
 
-.chip{
+.chip {
   width: fit-content;
   padding: 5px 20px;
   border-radius: 50px;
