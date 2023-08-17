@@ -2,9 +2,9 @@ import { Route, Routes } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import './Dashboard.css';
-import Employees from '../../pages/employees/Employees';
-import Employee from '../../pages/employee/Employee';
-import EmployeeForm from '../../pages/employeeForm/EmployeeForm';
+import Employees from '../../pages/employees';
+import Employee from '../../pages/employee';
+import EmployeeForm from '../../pages/employeeForm';
 
 function Dashboard() {
   return (

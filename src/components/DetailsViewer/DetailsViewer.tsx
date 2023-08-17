@@ -8,7 +8,7 @@ interface DetailsViewerProps {
 }
 
 const DetailsViewer: FC<DetailsViewerProps> = ({ rows, data }) => {
-  const renderColumns = (columns) => {
+  const renderColumns = (columns: ColumnType[]) => {
     return columns.map((column, j) => {
       let value = data[column.key];
 

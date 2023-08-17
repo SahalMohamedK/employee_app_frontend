@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { classNames } from '../../utls/funcs';
+import { classNames } from '../../utils/funcs';
 import './Status.css';
 
 interface StatusProps {

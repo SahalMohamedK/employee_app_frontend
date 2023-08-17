@@ -10,7 +10,7 @@ interface TableProps {
 
 const Table: FC<TableProps> = ({ columns, dataset, onClick }) => {
   const renderHeaders = () => {
-    return columns.map((column) => <th key={'table-th-' + column.key}>{column.label}</th>);
+    return columns.map((column, i) => <th key={`table-th-${column.key}-${i}`}>{column.label}</th>);
   };
 
   const renderDatas = () => {
@@ -37,8 +37,18 @@ const Table: FC<TableProps> = ({ columns, dataset, onClick }) => {
         <thead>
           <tr className='table-head'>{renderHeaders()}</tr>
         </thead>
-        <tbody>{renderDatas()}</tbody>
+        {dataset?.length > 0 && <tbody>{renderDatas()}</tbody>}
       </table>
+      {dataset?.length === 0 && (
+        <div className='center flex-column text-primary'>
+          <img
+            className='icon'
+            src='/assets/icons/triangle-exclamation.svg'
+            alt='No data exclamation icon'
+          />
+          <div>No employee data</div>
+        </div>
+      )}
     </>
   );
 };

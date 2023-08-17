@@ -1,0 +1,37 @@
+.address-fields-wrapper {
+    margin-bottom: 15px;
+}
+
+.address-fields{
+    display: flex;
+    flex-direction: column;
+}
+
+.address-fields label {
+  color: #8c8c8c;
+  margin-bottom: 5px;
+}
+
+.address-fields input {
+  margin-bottom: 10px;
+  border: 1px solid #8c8c8c;
+  border-radius: 5px;
+  padding: 15px;
+  cursor: text;
+  width: 100%;
+  font-size: 14px;
+}
+
+.address-fields-wrapper.error .address-fields input {
+  border: 1px solid red !important;
+}
+
+.address-fields address:focus {
+  border-color: #03aeee !important;
+}
+
+.address-fields-wrapper p {
+  margin-top: 5px;
+  color: red;
+  font-size: 14px;
+}

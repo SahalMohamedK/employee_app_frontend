@@ -1,5 +1,9 @@
 /* Variables */
 :root {
+  /* Basic colors */
+  --light-color: #fff;
+  --dark-color: #000;
+
   /* Primary colors */
   --primary-color: #03aeee;
   --primary-tint-color: #eaf9ff;
@@ -33,6 +37,27 @@ a {
   display: block;
 }
 
+/* Text colors */
+.text-light {
+  color: var(--light-color);
+}
+
+.text-dark {
+  color: var(--dark-color);
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-success {
+  color: var(--success-color);
+}
+
+.text-danger {
+  color: var(--danger-color);
+}
+
 .full-screen {
   width: 100vw;
   height: 100vh;
@@ -61,6 +86,11 @@ a {
   width: 100%;
 }
 
+.column:not(:last-of-type),
+.column:not(:first-of-type) {
+  margin: 0px 20px;
+}
+
 .center {
   display: flex;
   align-items: center;
@@ -75,25 +105,6 @@ a {
   justify-content: center;
 }
 
-.btn {
-  padding: 15px 20px;
-  border-radius: 10px;
-  border: none;
-  font-size: 18px;
-  font-weight: bold;
-  transition: all 0.3s;
-  cursor: pointer;
-}
-
-.btn-primary {
-  background: var(--primary-color);
-  color: #fff;
-}
-
-.btn-primary:hover {
-  background: var(--primary-shade-color);
-}
-
 .card {
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
@@ -106,6 +117,19 @@ a {
   width: fit-content;
   padding: 5px 20px;
   border-radius: 50px;
+}
+
+.icon-sm {
+  width: 20px;
+}
+
+.icon {
+  width: 35px;
+  margin: 10px;
+}
+
+.icon-lg {
+  width: 50px;
 }
 
 @media only screen and (max-width: 768px) {

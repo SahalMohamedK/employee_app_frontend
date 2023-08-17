@@ -1,11 +1,14 @@
-class EmployeeType {
+import AddressType from './AddressType';
+
+interface EmployeeType {
   id: string;
   name: string;
   isActive: boolean;
-  joiningData: string;
+  joiningDate: string;
+  department: string;
   role: string;
-  experience: number;
-  address: string;
+  experience: string;
+  address: AddressType;
 }
 
 export default EmployeeType;
