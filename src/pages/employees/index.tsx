@@ -4,12 +4,16 @@ import Table from '../../components/Table/Table';
 import TitleBar from '../../components/TitleBar/TitleBar';
 import Employee from '../../types/EmployeeType';
 import { FC, useState } from 'react';
-import Actions from '../../components/Actions/Actions';
+import Actions from '../../components/Actions/inedx';
 import { employeeColumns } from '../../columns/employee.columns';
 import Dialog, { DialogStateType } from '../../components/Dialog/Dialog';
 import { useGetEmployeeListQuery } from './api';
+import { getRoleFromToken } from '../../utils/token';
+import ROLE from '../../consts/roles';
 
 const Employees: FC = () => {
+  const role = getRoleFromToken();
+
   const [deleteDialogState, setDeleteDialogState] = useState<DialogStateType>({ show: false });
 
   const { data } = useGetEmployeeListQuery();
@@ -24,7 +28,7 @@ const Employees: FC = () => {
           setDeleteDialogState({ show: true, params: { id } });
         }}
         onEdit={() => {
-          console.log(id);
+          navigate(`/employees/edit/${id}`);
         }}
       />
     );
@@ -32,7 +36,7 @@ const Employees: FC = () => {
 
   const employeeTableColumns = [
     ...employeeColumns,
-    { key: 'id', label: 'Action', adapter: action }
+    [ROLE.ADMIN, ROLE.HR].includes(role) && { key: 'id', label: 'Action', adapter: action }
   ];
 
   const handleCreate = () => {

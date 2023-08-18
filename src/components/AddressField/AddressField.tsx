@@ -1,36 +1,41 @@
-import { FC } from 'react';
-import { classNames } from '../../utils/funcs';
+import { FC, useEffect, useState } from 'react';
 import './AddressField.css';
-
-export interface AddressFieldType {
-  key: string;
-  placeholder: string;
-}
+import { AddressFieldType } from './types';
+import AddressType from '../../types/AddressType';
 
 interface AddressFieldProps {
   label: string;
   fields: AddressFieldType[];
   values: object;
-  onChange?: (field: string, value: string) => void;
-  error?: string;
+  onChange?: (address: AddressType) => void;
+  errors?: object;
 }
 
-const AddressField: FC<AddressFieldProps> = ({ label, fields, values, onChange, error }) => {
+const AddressField: FC<AddressFieldProps> = ({ label, fields, values, onChange, errors = {} }) => {
+  const [address, setAddress] = useState<AddressType>();
+
   const handleChange = (field: string, value: string) => {
-    onChange(field, value);
+    setAddress((prevAddress) => ({ ...prevAddress, [field]: value }));
   };
 
+  useEffect(() => {
+    if (address) onChange(address);
+  }, [address]);
+
   return (
-    <div className={classNames('address-fields-wrapper', error ? 'error' : '')}>
+    <div className='address-fields-wrapper'>
       <div className='address-fields'>
         <label>{label}</label>
         {fields.map((field) => (
-          <input
-            key={field.key}
-            onChange={(e) => handleChange(field.key, e.target.value)}
-            placeholder={field.placeholder}
-            value={values[field.key] || ''}
-          />
+          <div key={field.key}>
+            <input
+              className={errors[field.key]?.length ? 'error' : ''}
+              onChange={(e) => handleChange(field.key, e.target.value)}
+              placeholder={field.placeholder}
+              value={values[field.key] || ''}
+            />
+            {errors[field.key]?.map((error, i) => <p key={i}>{error}</p>)}
+          </div>
         ))}
       </div>
     </div>

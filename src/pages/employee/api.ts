@@ -1,9 +1,9 @@
 import baseApi from '../../services';
-import ResponseType from '../../types/ResponseType';
+import { ResponseDataType } from '../../types/ResponseType';
 
 export const employeeApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getEmployee: builder.query<ResponseType, string>({
+    getEmployee: builder.query<ResponseDataType, string>({
       query: (id) => `/employees/${id}`
     })
   })

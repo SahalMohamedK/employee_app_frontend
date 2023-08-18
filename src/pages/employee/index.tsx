@@ -16,8 +16,6 @@ function Employee() {
   const { id } = useParams();
   const [employeeData, setEmployeeData] = useState<EmployeeType>();
 
-  console.log(employeeData);
-
   const [getEmployeeById, { data, isSuccess }] = useLazyGetEmployeeQuery();
 
   const navigate = useNavigate();

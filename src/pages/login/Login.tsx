@@ -32,6 +32,7 @@ const Login: FC = () => {
     ],
     [email, loginResponse]
   );
+
   const passwordErrors = useValidator(
     [
       requiredValidator('Password is required'),

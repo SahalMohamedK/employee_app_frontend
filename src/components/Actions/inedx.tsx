@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import './Actions.css';
+import './style.css';
 
 interface ActionsProps {
   onDelete: () => void;

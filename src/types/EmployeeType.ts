@@ -5,7 +5,7 @@ interface EmployeeType {
   name: string;
   isActive: boolean;
   joiningDate: string;
-  department: string;
+  departmentId: string;
   role: string;
   experience: string;
   address: AddressType;

@@ -1,12 +1,6 @@
-import { AddressFieldType } from '../../components/AddressField/AddressField';
+import { AddressFieldType } from '../../components/AddressField/types';
 import { OptionType } from '../../components/SelectField/SelectField';
-
-export const departmentOptions: OptionType[] = [
-  { text: 'HR', value: 'hr' },
-  { text: 'Engineer', value: 'engineer' }
-];
-
-export const roleOptions: OptionType[] = [{ text: 'Front-end', value: 'front-end' }];
+import EmployeeType from '../../types/EmployeeType';
 
 export const statusOptions: OptionType[] = [
   { text: 'Active', value: 'active' },
@@ -15,5 +9,27 @@ export const statusOptions: OptionType[] = [
 
 export const addressFields: AddressFieldType[] = [
   { key: 'line1', placeholder: 'Line 1' },
-  { key: 'line2', placeholder: 'Line 2' }
+  { key: 'line2', placeholder: 'Line 2' },
+  { key: 'city', placeholder: 'City' },
+  { key: 'state', placeholder: 'State' },
+  { key: 'country', placeholder: 'Country' },
+  { key: 'pincode', placeholder: 'Pincode' }
 ];
+
+export const emptyEmployee: EmployeeType = {
+  id: '',
+  name: '',
+  isActive: null,
+  joiningDate: '',
+  departmentId: '',
+  role: '',
+  experience: '',
+  address: {
+    line1: '',
+    line2: '',
+    city: '',
+    state: '',
+    country: '',
+    pincode: ''
+  }
+};

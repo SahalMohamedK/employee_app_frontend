@@ -17,7 +17,7 @@ const LoginInputField: FC<LoginInputFieldProps> = ({
   type,
   value,
   onChange,
-  errors = []
+  errors
 }) => {
   const handleChange = (e: any) => {
     onChange(e.target.value);
@@ -25,7 +25,7 @@ const LoginInputField: FC<LoginInputFieldProps> = ({
 
   return (
     <>
-      <div className={classNames('login-input-field-wrapper', errors.length ? 'error' : '')}>
+      <div className={classNames('login-input-field-wrapper', errors?.length ? 'error' : '')}>
         <div className='login-input-field'>
           <input
             onChange={handleChange}
@@ -35,9 +35,7 @@ const LoginInputField: FC<LoginInputFieldProps> = ({
           />
           <label htmlFor={id}>{label}</label>
         </div>
-        {errors.map((error, i) => (
-          <p key={i}>{error}</p>
-        ))}
+        {errors?.map((error, i) => <p key={i}>{error}</p>)}
       </div>
     </>
   );

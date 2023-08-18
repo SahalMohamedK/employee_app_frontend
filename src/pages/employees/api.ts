@@ -1,11 +1,17 @@
 import baseApi from '../../services';
-import ResponseType from '../../types/ResponseType';
+import { ResponseDataListType } from '../../types/ResponseType';
 
 export const employeesApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getEmployeeList: builder.query<ResponseType, void>({
+    getEmployeeList: builder.query<ResponseDataListType, void>({
       query: () => '/employees'
     })
+    // removeEmployee: builder.mutation<ResponseType, string>({
+    //   query: (id) => {
+    //     url: `/employees/${id}`,
+    //     method: 'DELETE'
+    //   }
+    // })
   })
 });
 

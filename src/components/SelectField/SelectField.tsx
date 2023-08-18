@@ -13,7 +13,7 @@ interface SelectFiedProps {
   options: OptionType[];
   value: string;
   onChange?: (value: string) => void;
-  error?: string;
+  errors?: string[];
   placeholder?: string;
 }
 
@@ -22,7 +22,7 @@ const SelectFied: FC<SelectFiedProps> = ({
   label,
   value,
   onChange,
-  error,
+  errors,
   options,
   placeholder
 }) => {
@@ -32,7 +32,7 @@ const SelectFied: FC<SelectFiedProps> = ({
 
   return (
     <>
-      <div className={classNames('select-field-wrapper', error ? 'error' : '')}>
+      <div className={classNames('select-field-wrapper', errors?.length ? 'error' : '')}>
         <div className='select-field'>
           <label htmlFor={id}>{label}</label>
           <select onChange={handleChange} {...{ id, value }}>
@@ -48,7 +48,7 @@ const SelectFied: FC<SelectFiedProps> = ({
             ))}
           </select>
         </div>
-        <p>{error}</p>
+        {errors?.map((error, i) => <p key={i}>{error}</p>)}
       </div>
     </>
   );

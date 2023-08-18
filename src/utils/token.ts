@@ -11,3 +11,18 @@ export const setToken = (token: string) => {
 export const removeToken = () => {
   localStorage.removeItem(TOKEN_KEY);
 };
+
+export const getPayloadFromToken = () => {
+  const token = getToken();
+  let payload = token.split('.')[1];
+
+  payload = atob(payload);
+
+  return JSON.parse(payload);
+};
+
+export const getRoleFromToken = () => {
+  const payload = getPayloadFromToken();
+
+  return payload.role;
+};

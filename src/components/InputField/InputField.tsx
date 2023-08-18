@@ -8,8 +8,9 @@ interface InputFieldProps {
   type?: 'text' | 'password' | 'date' | 'number';
   value: string;
   onChange?: (value: string) => void;
-  error?: string;
+  errors?: string[];
   placeholder?: string;
+  disabled?: boolean;
 }
 
 const InputField: FC<InputFieldProps> = ({
@@ -18,8 +19,9 @@ const InputField: FC<InputFieldProps> = ({
   type = 'text',
   value,
   onChange,
-  error,
-  placeholder
+  errors,
+  placeholder,
+  disabled
 }) => {
   const handleChange = (e: any) => {
     let value = e.target.value;
@@ -31,12 +33,17 @@ const InputField: FC<InputFieldProps> = ({
 
   return (
     <>
-      <div className={classNames('input-field-wrapper', error ? 'error' : '')}>
+      <div className={classNames('input-field-wrapper', errors?.length ? 'error' : '')}>
         <div className='input-field'>
           <label htmlFor={id}>{label}</label>
-          <input onChange={handleChange} placeholder={placeholder} {...{ id, type, value }} />
+          <input
+            onChange={handleChange}
+            placeholder={placeholder}
+            {...{ id, type, value }}
+            disabled={disabled}
+          />
         </div>
-        <p>{error}</p>
+        {errors?.map((error, i) => <p key={i}>{error}</p>)}
       </div>
     </>
   );

@@ -16,10 +16,14 @@
   width: 100%;
   font-size: 14px;
 }
+.input-field input:disabled{
+  background: #cdcdcd;
+}
 
 .input-field-wrapper.error .input-field input {
   border: 1px solid red !important;
 }
+
 
 .input-field input:focus {
   border-color: #03aeee !important;
